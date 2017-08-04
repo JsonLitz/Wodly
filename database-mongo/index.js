@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost/WODly');
 
 var db = mongoose.connection;
 
@@ -12,7 +12,7 @@ db.once('open', function() {
 });
 
 var itemSchema = mongoose.Schema({
-  quantity: Number,
+  date: String,
   description: String
 });
 

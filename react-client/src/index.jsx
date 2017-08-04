@@ -6,14 +6,14 @@ import List from './components/List.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       items: []
-    }
+    };
   }
 
   componentDidMount() {
     $.ajax({
-      url: '/items', 
+      url: '/items',
       success: (data) => {
         this.setState({
           items: data
@@ -25,11 +25,20 @@ class App extends React.Component {
     });
   }
 
+  // saveEntry(){
+  //   $post('/items', )
+  // }
+
+
   render () {
-    return (<div>
-      <h1>Item List</h1>
-      <List items={this.state.items}/>
-    </div>)
+    return (
+      <div>
+        <h1>Wodly</h1>
+
+        <List items={this.state.items}/>
+
+      </div>
+    )
   }
 }
 
