@@ -4,7 +4,7 @@ import $ from 'jquery';
 import List from './components/List.jsx';
 const divStyle = {
   // color: 'blue';
-  textAlign: 'center' 
+  textAlign: 'center'
 };
 class App extends React.Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class App extends React.Component {
       success: (data) => {
         this.setState({
           items: data
-        })
+        });
       },
       error: (err) => {
         console.log('err', err);

@@ -21,6 +21,7 @@ class List extends React.Component {
     console.log('Heres your stupid log', ok.state.text);
     $.post( "/items", { text: this.state.text }, function( data ) {
     });
+    this.showEntries();
   }
   showEntries() {
     var that = this;
@@ -31,7 +32,7 @@ class List extends React.Component {
     });
   }
   //TODO: add delete entry function
-  // deleteEntry() {
+  // clearEntries() {
   //   $.ajax({
   //     url: '/items',
   //     type: 'DELETE',
