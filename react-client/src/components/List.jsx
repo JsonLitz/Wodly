@@ -27,17 +27,12 @@ class List extends React.Component {
       that.setState({
         data: data
       });
-      console.log(that.state.data);
     });
   }
 
   clickParagraph() {
   console.log('clicked!');
   }
-  // Kitten.find(function (err, kittens) {
-  //   if (err) return console.error(err);
-  //   console.log(kittens);
-  // })
 
   render() {
     return (
@@ -47,14 +42,16 @@ class List extends React.Component {
             value={this.state.text}
             onChange={this.onChange.bind(this)}
           />
-          <button onClick={this.addNew.bind(this)}>Add an entry!</button>
+          <button
+            onClick={this.addNew.bind(this)}
+          >Add an entry!
+          </button>
         </form>
         <h4> Journal Entries </h4>
         <button onClick={this.showEntries.bind(this)}>Render Entries</button>
         <h2>Entries</h2>
-        { this.props.items.length }
         <div>
-          { this.state.data.map(entry => <ListItem item={entry}/>)}
+          { this.state.data.map(data => <ListItem item={data}/>)}
         </div>
       </div>
     )

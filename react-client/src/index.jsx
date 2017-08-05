@@ -28,7 +28,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <h1>Wodly</h1>
+        <h1>WODly</h1>
 
         <List items={this.state.items}/>
 
