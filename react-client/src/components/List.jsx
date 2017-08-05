@@ -17,17 +17,23 @@ class List extends React.Component {
   }
   addNew(e) {
     e.preventDefault();
-    console.log('Heres your stupid log', this.state.text);
+    console.log('Heres your stupid log', this.state.data);
     $.post( "/items", { text: this.state.text }, function( data ) {
     });
   }
   showEntries() {
+    var that = this;
     $.get("/items", function( data ){
-      console.log(data);
-
+      that.setState({
+        data: data
+      });
+      console.log(that.state.data);
     });
   }
 
+  clickParagraph() {
+  console.log('clicked!');
+  }
   // Kitten.find(function (err, kittens) {
   //   if (err) return console.error(err);
   //   console.log(kittens);
@@ -47,7 +53,9 @@ class List extends React.Component {
         <button onClick={this.showEntries.bind(this)}>Render Entries</button>
         <h2>Entries</h2>
         { this.props.items.length }
-        { this.props.items.map(item => <ListItem item={item}/>)}
+        <div>
+          { this.state.data.map(entry => <ListItem item={entry}/>)}
+        </div>
       </div>
     )
   }
