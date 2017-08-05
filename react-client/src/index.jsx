@@ -2,16 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import List from './components/List.jsx';
+import Wod from './components/Wod.jsx';
+import wodData from './data/Wods.js';
+
 const divStyle = {
-  // color: 'blue';
   textAlign: 'center'
 };
+
 class App extends React.Component {
   constructor(props) {
 
     super(props);
     this.state = {
-      items: []
+      items: [],
+      wods: wodData
     };
   }
 
@@ -33,7 +37,13 @@ class App extends React.Component {
       <div style = {divStyle}>
         <h1>WODly</h1>
 
-        <List items={this.state.items}/>
+        <div>
+          <List items = {this.state.items}/>
+        </div>
+        
+        <div>
+          {this.state.wods.map (wod => <Wod wod = {wod}/>)}
+        </div>
 
       </div>
     )

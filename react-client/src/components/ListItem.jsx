@@ -10,3 +10,8 @@ const ListItem = (props) =>
   )
 
 export default ListItem;
+
+//make new componenent
+//this one is a functional
+//it will receive props from Index.js
+//

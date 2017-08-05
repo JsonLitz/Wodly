@@ -1,4 +1,4 @@
-window.wods = [
+const wodData = [
   {
     name:'Murph',
     movements:{
@@ -71,3 +71,5 @@ window.wods = [
     details: '7 rounds for time'
   }
 ];
+
+export default wodData;
