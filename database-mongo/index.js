@@ -12,14 +12,13 @@ db.once('open', function() {
 });
 
 var itemSchema = mongoose.Schema({
-  date: String,
-  description: String
+  text: String,
 });
 
-var Item = mongoose.model('Item', itemSchema);
+var Entry = mongoose.model('Entry', itemSchema);
 
 var selectAll = function(callback) {
-  Item.find({}, function(err, items) {
+  Entry.find({}, function(err, items) {
     if(err) {
       callback(err, null);
     } else {
@@ -27,5 +26,12 @@ var selectAll = function(callback) {
     }
   });
 };
+var save = function(entry){
+  var row = new Entry({
+   text: entry.text
+  });
+  return row.save();
+};
 
 module.exports.selectAll = selectAll;
+module.exports.save = save;

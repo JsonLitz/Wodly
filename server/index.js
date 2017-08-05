@@ -1,10 +1,11 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var items = require('../database-mongo');
-
 var app = express();
 
 app.use(express.static(__dirname + '/../react-client/dist'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.get('/items', function (req, res) {
   items.selectAll(function(err, data) {
@@ -17,7 +18,9 @@ app.get('/items', function (req, res) {
 });
 
 app.post('/items', function(req, res){
-
+  console.log(req.body);
+  items.save(req.body);
+  res.send(req.body);
 });
 
 app.listen(3000, function() {

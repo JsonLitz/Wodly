@@ -1,46 +1,56 @@
 import React from 'react';
 import ListItem from './ListItem.jsx';
-
+import $ from 'jquery';
+console.log('hello from List.jsx');
 class List extends React.Component {
   constructor (props){
     super (props);
     this.state = {
-
+      text: '',
+      data:[]
     };
   }
+  onChange (e) {
+    this.setState({
+      text: e.target.value
+    });
+  }
+  addNew(e) {
+    e.preventDefault();
+    console.log('Heres your stupid log', this.state.text);
+    $.post( "/items", { text: this.state.text }, function( data ) {
+    });
+  }
+  showEntries() {
+    $.get("/items", function( data ){
+      console.log(data);
 
-render() {
-  return (
-    <div>
-      <form>
-        <textarea cols="50" rows="4" name="description"></textarea>
-        <button type="submit">Submit</button>
-      </form>
-      <h4> Journal Entries </h4>
-      <h2>Entries</h2> { this.props.items.length }
+    });
+  }
+
+  // Kitten.find(function (err, kittens) {
+  //   if (err) return console.error(err);
+  //   console.log(kittens);
+  // })
+
+  render() {
+    return (
+      <div>
+        <form action="/items" method="post" >
+          <input
+            value={this.state.text}
+            onChange={this.onChange.bind(this)}
+          />
+          <button onClick={this.addNew.bind(this)}>Add an entry!</button>
+        </form>
+        <h4> Journal Entries </h4>
+        <button onClick={this.showEntries.bind(this)}>Render Entries</button>
+        <h2>Entries</h2>
+        { this.props.items.length }
         { this.props.items.map(item => <ListItem item={item}/>)}
-    </div>
+      </div>
     )
   }
 }
 
 export default List;
-
-
-
-// const List = (props) => (
-// //   <div>
-// //       <form>
-// //         <textarea cols="50" rows="4" name="comment"></textarea>
-// //         <button type="submit">Submit</button>
-// //       </form>
-// //       <h4> Journal Entries </h4>
-// //       <h2>Entries</h2> { props.items.length }
-// //     { props.items.map(item => <ListItem item={item}/>)}
-// //   </div>
-// // )
-// //
-// // export default List;
-//
-// import React from 'react';
-// import ListItem from './ListItem.jsx';

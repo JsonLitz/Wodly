@@ -25,11 +25,6 @@ class App extends React.Component {
     });
   }
 
-  // saveEntry(){
-  //   $post('/items', )
-  // }
-
-
   render () {
     return (
       <div>
