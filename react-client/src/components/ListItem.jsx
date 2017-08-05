@@ -4,6 +4,7 @@ const ListItem = (props) =>
   (
     <div>
       <p>*{ props.item.text }*</p>
+      <button>delete</button>
 
     </div>
   )

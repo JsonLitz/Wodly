@@ -13,6 +13,7 @@ db.once('open', function() {
 
 var itemSchema = mongoose.Schema({
   text: String,
+  date: { type: Date, default: Date.now }
 });
 
 var Entry = mongoose.model('Entry', itemSchema);

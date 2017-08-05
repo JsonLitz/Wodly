@@ -30,6 +30,16 @@ class List extends React.Component {
       });
     });
   }
+  //TODO: add delete entry function
+  // deleteEntry() {
+  //   $.ajax({
+  //     url: '/items',
+  //     type: 'DELETE',
+  //     success: function(result) {
+  //       console.log(result);
+  //     }
+  //   });
+  // }
 
   render() {
     return (
@@ -44,11 +54,11 @@ class List extends React.Component {
           >Add an entry!
           </button>
         </form>
-        <h4> Journal Entries </h4>
+        <h3> Movement Entries </h3>
         <button onClick={this.showEntries.bind(this)}>Render Entries</button>
-        <h2>Entries</h2>
+        <h4>Exercises</h4>
         <div>
-          { this.state.data.map(data => <ListItem item={data}/>)}
+          { this.state.data.map(data => <ListItem  item={data}/>)}
         </div>
       </div>
     )

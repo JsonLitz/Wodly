@@ -2,9 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import List from './components/List.jsx';
-
+const divStyle = {
+  // color: 'blue';
+  textAlign: 'center' 
+};
 class App extends React.Component {
   constructor(props) {
+
     super(props);
     this.state = {
       items: []
@@ -24,10 +28,9 @@ class App extends React.Component {
       }
     });
   }
-
   render () {
     return (
-      <div>
+      <div style = {divStyle}>
         <h1>WODly</h1>
 
         <List items={this.state.items}/>
