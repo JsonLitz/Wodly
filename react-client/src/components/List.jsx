@@ -16,8 +16,9 @@ class List extends React.Component {
     });
   }
   addNew(e) {
+    var ok = this;
     e.preventDefault();
-    console.log('Heres your stupid log', this.state.data);
+    console.log('Heres your stupid log', ok.state.text);
     $.post( "/items", { text: this.state.text }, function( data ) {
     });
   }
@@ -30,14 +31,10 @@ class List extends React.Component {
     });
   }
 
-  clickParagraph() {
-  console.log('clicked!');
-  }
-
   render() {
     return (
       <div>
-        <form action="/items" method="post" >
+        <form action="/items">
           <input
             value={this.state.text}
             onChange={this.onChange.bind(this)}
