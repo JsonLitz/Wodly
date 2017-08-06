@@ -40,9 +40,10 @@ class App extends React.Component {
         <div>
           <List items = {this.state.items}/>
         </div>
-        
+
         <div>
-          {this.state.wods.map (wod => <Wod wod = {wod}/>)}
+          {this.state.wods.map (wod => <Wod key={this.state.wods.indexOf(wod)}
+          wod = {wod}/>)}
         </div>
 
       </div>

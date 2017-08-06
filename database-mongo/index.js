@@ -11,25 +11,29 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-var itemSchema = mongoose.Schema({
+var wodSchema = mongoose.Schema({
   text: String,
-  date: { type: Date, default: Date.now }
+  movements: String,
+  details: String,
+  name: String
+
 });
 
-var Entry = mongoose.model('Entry', itemSchema);
+var Entry = mongoose.model('Entry', wodSchema);
 
 var selectAll = function(callback) {
-  Entry.find({}, function(err, items) {
+  Entry.find({}, function(err, wods) {
     if(err) {
       callback(err, null);
     } else {
-      callback(null, items);
+      callback(null, wods);
     }
   });
 };
 var save = function(entry){
   var row = new Entry({
-   text: entry.text
+   text: entry.text,
+   nae: entry.text
   });
   return row.save();
 };

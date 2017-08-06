@@ -7,6 +7,7 @@ class List extends React.Component {
     super (props);
     this.state = {
       text: '',
+      // name:'',
       data:[]
     };
   }
@@ -64,9 +65,9 @@ class List extends React.Component {
         <h4>Exercises</h4>
 
         <div>
-          { this.state.data.map(data => <ListItem  item={data}/>)}
+          { this.state.data.map(data => <ListItem key={this.state.data.indexOf(data)}  item={data}/>)}
         </div>
-        
+
       </div>
     )
   }
