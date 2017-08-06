@@ -6,24 +6,30 @@ class List extends React.Component {
   constructor (props){
     super (props);
     this.state = {
-      text: '',
-      // name:'',
+      details: '',
+      name:'',
       data:[]
     };
+    this.onChange = this.onChange.bind(this);
   }
   onChange (e) {
     this.setState({
-      text: e.target.value
+      [e.target.name]: e.target.value
     });
+    // this.setState({
+    //   details: e.target.value
+    // });
   }
+
   addNew(e) {
     var that = this;
     e.preventDefault();
-    console.log('Heres your stupid log', that.state.text);
-    $.post( "/items", { text: this.state.text }, function( data ) {
+    console.log('Heres your stupid log', that.state.details, that.state.name);
+    $.post( "/items", { details: this.state.details, name:this.state.name }, function( data ) {
     });
     this.showEntries();
   }
+
   showEntries() {
     var that = this;
     $.get("/items", function( data ){
@@ -37,14 +43,34 @@ class List extends React.Component {
     return (
       <div>
         <form action="/items">
-          <input
-            value={this.state.text}
-            onChange={this.onChange.bind(this)}
-          />
+
+          <div>
+            <input
+              name = 'details'
+              type = 'text'
+              placeholder = 'Enter details'
+              value={this.state.details}
+              onChange={this.onChange}
+              required = 'required'
+            />
+          </div>
+
+          <div>
+            <input
+              name = 'name'
+              type = 'text'
+              placeholder = 'Enter a name'
+              value={this.state.name}
+              onChange={this.onChange}
+              required = 'required'
+            />
+          </div>
+
           <button
             onClick={this.addNew.bind(this)}
           >Add an entry!
           </button>
+
         </form>
         <h3> Wods</h3>
         <div>

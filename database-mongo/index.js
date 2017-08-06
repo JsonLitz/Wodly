@@ -12,7 +12,6 @@ db.once('open', function() {
 });
 
 var wodSchema = mongoose.Schema({
-  text: String,
   movements: String,
   details: String,
   name: String
@@ -32,8 +31,8 @@ var selectAll = function(callback) {
 };
 var save = function(entry){
   var row = new Entry({
-   text: entry.text,
-   nae: entry.text
+   details: entry.details,
+   name: entry.name
   });
   return row.save();
 };

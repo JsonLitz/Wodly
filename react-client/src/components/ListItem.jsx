@@ -3,7 +3,8 @@ import React from 'react';
 const ListItem = (props) =>
   (
     <div>
-      <p>*{ props.item.text }*</p>
+      <p>Name: { props.item.name }*</p>
+      <p>Details: { props.item.details }*</p>
 
     </div>
   )
