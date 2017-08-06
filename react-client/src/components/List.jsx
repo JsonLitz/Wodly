@@ -17,9 +17,9 @@ class List extends React.Component {
     });
   }
   addNew(e) {
-    var ok = this;
+    var that = this;
     e.preventDefault();
-    console.log('Heres your stupid log', ok.state.text);
+    console.log('Heres your stupid log', that.state.text);
     $.post( "/items", { text: this.state.text }, function( data ) {
     });
     this.showEntries();
@@ -32,16 +32,6 @@ class List extends React.Component {
       });
     });
   }
-  //TODO: add delete entry function
-  // clearEntries() {
-  //   $.ajax({
-  //     url: '/items',
-  //     type: 'DELETE',
-  //     success: function(result) {
-  //       console.log(result);
-  //     }
-  //   });
-  // }
 
   render() {
     return (
@@ -51,19 +41,12 @@ class List extends React.Component {
             value={this.state.text}
             onChange={this.onChange.bind(this)}
           />
-
           <button
             onClick={this.addNew.bind(this)}
           >Add an entry!
           </button>
         </form>
-
-        <h3> Movement Entries </h3>
-
-        <button onClick={this.showEntries.bind(this)}>Render Entries</button>
-
-        <h4>Exercises</h4>
-
+        <h3> Wods</h3>
         <div>
           { this.state.data.map(data => <ListItem key={this.state.data.indexOf(data)}  item={data}/>)}
         </div>
@@ -74,3 +57,29 @@ class List extends React.Component {
 }
 
 export default List;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//TODO: add delete entry function
+// clearEntries() {
+//   $.ajax({
+//     url: '/items',
+//     type: 'DELETE',
+//     success: function(result) {
+//       console.log(result);
+//     }
+//   });
+// }
