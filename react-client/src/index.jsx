@@ -11,8 +11,8 @@ const divStyle = {
 
 class App extends React.Component {
   constructor(props) {
-
     super(props);
+
     this.state = {
       items: [],
       wods: wodData
@@ -20,6 +20,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.state.wods);
+
     $.ajax({
       url: '/items',
       success: (data) => {
@@ -32,19 +34,20 @@ class App extends React.Component {
       }
     });
   }
+
+
   render () {
     return (
-      <div style = {divStyle}>
-        <h1>WODly</h1>
+      <div>
+        <h1 style = {divStyle}>WODly</h1>
 
         <div>
+          <Wod wod = {this.state.wods} />
+        </div>
+        <div >
           <List items = {this.state.items}/>
         </div>
 
-        <div>
-          {this.state.wods.map (wod => <Wod key={this.state.wods.indexOf(wod)}
-          wod = {wod}/>)}
-        </div>
 
       </div>
     )

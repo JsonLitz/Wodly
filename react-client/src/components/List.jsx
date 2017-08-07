@@ -1,7 +1,10 @@
 import React from 'react';
 import ListItem from './ListItem.jsx';
 import $ from 'jquery';
-console.log('hello from List.jsx');
+
+const divStyle = {
+  textAlign: 'center'
+};
 class List extends React.Component {
   constructor (props){
     super (props);
@@ -12,21 +15,22 @@ class List extends React.Component {
     };
     this.onChange = this.onChange.bind(this);
   }
+
   onChange (e) {
     this.setState({
       [e.target.name]: e.target.value
     });
-    // this.setState({
-    //   details: e.target.value
-    // });
   }
 
   addNew(e) {
     var that = this;
     e.preventDefault();
-    console.log('Heres your stupid log', that.state.details, that.state.name);
-    $.post( "/items", { details: this.state.details, name:this.state.name }, function( data ) {
-    });
+    if (this.state.details.length !== 0 && this.state.name.length !== 0){
+      $.post( "/items", { details: this.state.details, name:this.state.name }, function( data ) {
+      });
+    }else{
+      window.alert('Please fill out all fields');
+    }
     this.showEntries();
   }
 
@@ -41,10 +45,20 @@ class List extends React.Component {
 
   render() {
     return (
-      <div>
+      <div >
         <form action="/items">
+          <div style = {divStyle}>
+            <input
+              name = 'name'
+              type = 'text'
+              placeholder = 'Enter a name'
+              value={this.state.name}
+              onChange={this.onChange}
+              required = 'required'
+              />
+          </div>
 
-          <div>
+          <div style = {divStyle}>
             <input
               name = 'details'
               type = 'text'
@@ -55,24 +69,15 @@ class List extends React.Component {
             />
           </div>
 
-          <div>
-            <input
-              name = 'name'
-              type = 'text'
-              placeholder = 'Enter a name'
-              value={this.state.name}
-              onChange={this.onChange}
-              required = 'required'
-            />
+
+          <div style = {divStyle}>
+            <button
+              onClick={this.addNew.bind(this)}
+              >Add an entry!
+            </button>
           </div>
-
-          <button
-            onClick={this.addNew.bind(this)}
-          >Add an entry!
-          </button>
-
         </form>
-        <h3> Wods</h3>
+
         <div>
           { this.state.data.map(data => <ListItem key={this.state.data.indexOf(data)}  item={data}/>)}
         </div>
@@ -83,29 +88,3 @@ class List extends React.Component {
 }
 
 export default List;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//TODO: add delete entry function
-// clearEntries() {
-//   $.ajax({
-//     url: '/items',
-//     type: 'DELETE',
-//     success: function(result) {
-//       console.log(result);
-//     }
-//   });
-// }
