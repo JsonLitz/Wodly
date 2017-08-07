@@ -4,7 +4,7 @@ import $ from 'jquery';
 import List from './components/List.jsx';
 import Wod from './components/Wod.jsx';
 import wodData from './data/Wods.js';
-
+import {Jumbotron} from 'react-bootstrap';
 const divStyle = {
   textAlign: 'center'
 };
@@ -38,18 +38,17 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>
-        <h1 style = {divStyle}>WODly</h1>
-
+      <Jumbotron>
         <div>
-          <Wod wod = {this.state.wods} />
+          <h1 style = {divStyle}>WODly</h1>
+          <div>
+            <Wod wod = {this.state.wods} />
+          </div>
+          <div >
+            <List items = {this.state.items}/>
+          </div>
         </div>
-        <div >
-          <List items = {this.state.items}/>
-        </div>
-
-
-      </div>
+      </Jumbotron>
     )
   }
 }
