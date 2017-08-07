@@ -1,10 +1,8 @@
 import React from 'react';
 import ListItem from './ListItem.jsx';
 import $ from 'jquery';
-
-const divStyle = {
-  textAlign: 'center'
-};
+import {Button, Grid, Row, Form, FormGroup, FormControl, Col} from 'react-bootstrap';
+const divStyle = {textAlign: 'center'};
 class List extends React.Component {
   constructor (props){
     super (props);
@@ -46,37 +44,40 @@ class List extends React.Component {
   render() {
     return (
       <div >
-        <form action="/items">
-          <div style = {divStyle}>
-            <input
-              name = 'name'
-              type = 'text'
-              placeholder = 'Enter a name'
-              value={this.state.name}
-              onChange={this.onChange}
-              required = 'required'
+        <Form horizontal>
+          <FormGroup controlId="formHorizontalEmail">
+            <div style = {divStyle}>
+              <input
+                name = 'name'
+                type = 'text'
+                placeholder = 'Enter a name'
+                value={this.state.name}
+                onChange={this.onChange}
+                required = 'required'
+                />
+            </div>
+
+            <div style = {divStyle}>
+              <input
+                name = 'details'
+                type = 'text'
+                placeholder = 'Enter details'
+                value={this.state.details}
+                onChange={this.onChange}
+                required = 'required'
               />
-          </div>
-
-          <div style = {divStyle}>
-            <input
-              name = 'details'
-              type = 'text'
-              placeholder = 'Enter details'
-              value={this.state.details}
-              onChange={this.onChange}
-              required = 'required'
-            />
-          </div>
+            </div>
 
 
-          <div style = {divStyle}>
-            <button
-              onClick={this.addNew.bind(this)}
-              >Add an entry!
-            </button>
-          </div>
-        </form>
+            <div style = {divStyle}>
+              <Button
+                bsStyle="primary"
+                onClick={this.addNew.bind(this)}
+                >Add an entry!
+              </Button>
+            </div>
+          </FormGroup>
+        </Form>
 
         <div>
           { this.state.data.map(data => <ListItem key={this.state.data.indexOf(data)}  item={data}/>)}
