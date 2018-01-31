@@ -18,7 +18,7 @@ class App extends React.Component {
       wods: wodData
     };
   }
-
+ //asdads
   componentDidMount() {
     console.log(this.state.wods);
 
