@@ -1,7 +1,10 @@
+import {Button, Grid, Row, Form, FormGroup, FormControl, Col} from 'react-bootstrap';
 import React from 'react';
 import Movements from './Movements.jsx';
 import wodData from '../data/Wods.js';
-
+const divStyle = {
+  textAlign: 'center'
+};
 class Wod extends React.Component {
   constructor(props){
     super(props);
@@ -20,14 +23,14 @@ class Wod extends React.Component {
 
 render () {
   return (
-      <div>
-        <h3> Your Daily Wod</h3>
-        <button onClick = {this.wodRandomizer.bind(this)}>randomize</button>
-        <div>Name: {this.state.currentWod.name}</div>
+      <div style = {divStyle}>
+        <h2 > Your Daily Wod</h2>
+        <Button bsStyle="primary" onClick = {this.wodRandomizer.bind(this)}>Pick another</Button>
+        <h3> {this.state.currentWod.name}</h3>
 
-        <div>Details: {this.state.currentWod.details}</div>
+        <h4>Details: {this.state.currentWod.details}</h4>
 
-        {this.state.currentWod.movements.map(movement => <Movements key = {this.state.currentWod.movements.indexOf(movement)} movement = {movement}/>)}
+        Movements:{this.state.currentWod.movements.map(movement => <Movements key = {this.state.currentWod.movements.indexOf(movement)} movement = {movement}/>)}
 
 
       </div>
