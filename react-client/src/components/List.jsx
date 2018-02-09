@@ -59,7 +59,6 @@ class List extends React.Component {
               required = 'required'
               />
           </div>
-
           <div style = {divStyle}>
             <input
               name = 'details'
@@ -81,21 +80,16 @@ class List extends React.Component {
                 />
             </FormGroup>
           </div>
-
-
           <div style = {divStyle}>
             <Button
-
               onClick={this.addNew.bind(this)}
               >Add an entry!
             </Button>
           </div>
         </form>
-
         <div>
           { this.state.data.map(data => <ListItem key={this.state.data.indexOf(data)}  item={data}/>)}
         </div>
-
       </div>
     )
   }

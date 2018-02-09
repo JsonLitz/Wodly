@@ -12,6 +12,7 @@ app.get('/items', function (req, res) {
     if(err) {
       res.sendStatus(500);
     } else {
+      console.log(res)
       res.json(data);
     }
   });

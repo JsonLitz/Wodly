@@ -12,7 +12,6 @@ const divStyle = {
 class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       items: [],
       wods: wodData
@@ -20,7 +19,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.state.wods);
+    console.log("mounted",this.state.wods);
 
     $.ajax({
       url: '/items',

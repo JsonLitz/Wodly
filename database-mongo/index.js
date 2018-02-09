@@ -35,6 +35,7 @@ var save = function(entry){
     details: entry.details,
     name: entry.name
   });
+  console.log("THIS IS A FLAG", row);
   return row.save();
 };
 
