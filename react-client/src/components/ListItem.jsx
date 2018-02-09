@@ -7,7 +7,7 @@ const ListItem = (props) =>
     <div>
       <p style = {divStyle}>Name: { props.item.name }</p>
       <p style = {divStyle}>Details: { props.item.details }</p>
-      <p style = {divStyle}>movements: { props.item.movements }</p>
+      <p style = {divStyle}>Movements: { props.item.movements }</p>
     </div>
   )
 export default ListItem;
