@@ -2,7 +2,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var items = require('../database-mongo');
 var app = express();
+var shortid = require('shortid');
 
+console.log("shortid",shortid.generate());
 app.use(express.static(__dirname + '/../react-client/dist'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

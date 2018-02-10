@@ -2,6 +2,7 @@ import React from 'react';
 import Movements from './Movements.jsx';
 import wodData from '../data/Wods.js';
 import {Button, Grid, Row, Form, FormGroup, FormControl, Col} from 'react-bootstrap';
+// import shortid from 'shortid';
 
 const divStyle = {
   textAlign: 'center'
@@ -28,6 +29,7 @@ class Wod extends React.Component {
     this.wodRandomizer()
   }
 
+  // console.log("shorid",shortid.generate());
 render () {
   console.log("helloassad", this.props);
   return (
