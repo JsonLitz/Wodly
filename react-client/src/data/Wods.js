@@ -69,6 +69,40 @@ const wodData = [
        '7 Pull ups'
     ],
     details: '7 rounds for time'
+  },
+  {
+    name: 'Grace',
+    movements: [
+       'Clean-and-Jerks (135/95 lb)'
+    ],
+    details: '30 reps for time'
+  },
+  {
+    name:'Barbara',
+    movements: [
+       '20 Pull-ups',
+       '30 Push-ups',
+       '40 Sit-ups',
+       '50 Squats'
+    ],
+    details: '5 rounds for time'
+  },
+  {
+    name:'Elizabeth',
+    movements: [
+       'Clean 135 lbs',
+       'Ring Dips'
+    ],
+    details: '21-15-9 reps, for time'
+  },
+  {
+    name:'Helen',
+    movements: [
+    '400 meter run',
+    '1.5 pood Kettlebell swing x 21',
+    'Pull-ups 12 reps'
+    ],
+    details: '3 rounds for time'
   }
 ];
 

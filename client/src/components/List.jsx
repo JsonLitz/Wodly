@@ -2,9 +2,7 @@ import React from 'react';
 import ListItem from './ListItem.jsx';
 import $ from 'jquery';
 import Button from 'react-bootstrap/lib/Button';
-const buttonsInstance = (
-  <Button bsStyle="primary">Primary</Button>
-);
+
 const divStyle = {
   textAlign: 'center'
 };

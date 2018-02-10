@@ -31,9 +31,11 @@ var selectAll = function(callback) {
 };
 var save = function(entry){
   var row = new Entry({
-   details: entry.details,
-   name: entry.name
+    movements: entry.movements,
+    details: entry.details,
+    name: entry.name
   });
+  console.log("THIS IS A FLAG", row);
   return row.save();
 };
 

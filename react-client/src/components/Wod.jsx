@@ -1,33 +1,44 @@
 import React from 'react';
 import Movements from './Movements.jsx';
 import wodData from '../data/Wods.js';
+import {Button, Grid, Row, Form, FormGroup, FormControl, Col} from 'react-bootstrap';
+// import shortid from 'shortid';
 
+const divStyle = {
+  textAlign: 'center'
+};
 class Wod extends React.Component {
   constructor(props){
     super(props);
+    console.log("wod props",props)
     this.state = {
-      currentWod: wodData[0]
+      currentWod: props.wod,
+      randomID:12345
     };
   }
-
   wodRandomizer ()  {
     var random  = wodData[Math.floor(Math.random()*wodData.length)];
+    var randomInt = Math.floor(Math.random()*100000);
     this.setState({
-      currentWod: random
+      currentWod: random,
+      randomID:randomInt
     });
-    console.log(random);
+    console.log(this.state.randomID);
+  }
+  componentWillMount() {
+    this.wodRandomizer()
   }
 
+  // console.log("shorid",shortid.generate());
 render () {
+  console.log("helloassad", this.props);
   return (
-      <div>
-        <h3> Your Daily Wod</h3>
-        <button onClick = {this.wodRandomizer.bind(this)}>randomize</button>
-        <div>Name: {this.state.currentWod.name}</div>
-
-        <div>Details: {this.state.currentWod.details}</div>
-
-        {this.state.currentWod.movements.map(movement => <Movements key = {this.state.currentWod.movements.indexOf(movement)} movement = {movement}/>)}
+      <div style = {divStyle}>
+        <h2 > Your Daily Wod</h2>
+        <Button bsStyle="primary" onClick = {this.props.wodRandomizer}>Pick another</Button>
+        <h3> {this.props.currentWod.name}</h3>
+        <h4>Details: {this.props.currentWod.details}</h4>
+        Movements:{this.props.currentWod.movements.map(movement => <Movements key={this.props.currentWod.movements.indexOf(movement)} movement = {movement}/>)}
 
 
       </div>

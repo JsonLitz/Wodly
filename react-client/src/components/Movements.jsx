@@ -1,13 +1,16 @@
 import React from 'react';
-
-const Movements = (props) =>
-   (
-    <div>
+const divStyle = {
+  textAlign: 'center'
+};
+function Movements (props) {
+   return(
+    <div style = {divStyle}>
       <ul>
-        <li>{props.movement}</li>
+        <li style = {divStyle}>{props.movement}</li>
       </ul>
     </div>
-  );
-
+)
+console.log("props", props)
+}
 
 export default Movements;

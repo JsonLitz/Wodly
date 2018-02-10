@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "server-dev": "nodemon server/index.js"
+    "server-dev": "nodemon server/index.js",
+    "db": "mongod"
   },
-  "author": "Beth Johnson",
+  "author": "Jason Lee",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.23.1",
@@ -26,6 +27,7 @@
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.2",
     "react-dom": "^15.6.1",
-    "react-rating": "^0.8.1"
+    "react-rating": "^0.8.1",
+    "shortid": "^2.2.8"
   }
 }

@@ -18,10 +18,8 @@ class App extends React.Component {
       wods: wodData
     };
   }
- //asdads
   componentDidMount() {
     console.log(this.state.wods);
-
     $.ajax({
       url: '/items',
       success: (data) => {
@@ -43,12 +41,9 @@ class App extends React.Component {
         <div>
           <Wod wod = {this.state.wods} />
         </div>
-
         <div >
           <List items = {this.state.items}/>
         </div>
-
-
       </div>
     )
   }
