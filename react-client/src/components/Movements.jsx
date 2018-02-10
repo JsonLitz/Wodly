@@ -10,6 +10,7 @@ function Movements (props) {
       </ul>
     </div>
 )
+console.log("props", props)
 }
 
 export default Movements;

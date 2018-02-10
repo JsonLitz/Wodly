@@ -16,14 +16,17 @@ class List extends React.Component {
       data:[]
     };
     this.onChange = this.onChange.bind(this);
+    this.randomNumberGen = this.randomNumberGen.bind(this);
   }
 
+  componentDidMount() {
+    this.showEntries();
+  }
   onChange (e) {
     this.setState({
       [e.target.name]: e.target.value
     });
   }
-
   addNew(e) {
     var that = this;
     e.preventDefault();
@@ -35,28 +38,32 @@ class List extends React.Component {
     }
     this.showEntries();
   }
-
   showEntries() {
     var that = this;
     $.get("/items", function( data ){
       that.setState({
         data: data
       });
+
     });
   }
-
+  randomNumberGen() {
+    let index=Math.floor(Math.random() * 1000);
+  }
   render() {
+    // console.log("mounted",this.state.data);
+
     return (
       <div >
         <form action="/items">
           <div style = {divStyle}>
             <input
-              name = 'name'
-              type = 'text'
-              placeholder = 'Enter a name'
+              name='name'
+              type='text'
+              placeholder='Enter a name'
               value={this.state.name}
               onChange={this.onChange}
-              required = 'required'
+              required='required'
               />
           </div>
           <div style = {divStyle}>
@@ -88,7 +95,7 @@ class List extends React.Component {
           </div>
         </form>
         <div>
-          { this.state.data.map(data => <ListItem key={this.state.data.indexOf(data)}  item={data}/>)}
+          {this.state.data.map(data => <ListItem key={data.details}  item={data}/>)}
         </div>
       </div>
     )

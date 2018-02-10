@@ -18,6 +18,18 @@ app.get('/items', function (req, res) {
   });
 });
 
+app.get('/', function (req, res) {
+  items.selectAll(function(err, data) {
+    if(err) {
+      res.sendStatus(500);
+    } else {
+      console.log(res)
+      res.json(data);
+    }
+  });
+});
+
+
 app.post('/items', function(req, res){
   console.log(req.body);
   items.save(req.body);
