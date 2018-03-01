@@ -20,7 +20,7 @@ class App extends React.Component {
       currentWod: "",
       randomID:""
     };
-    	this.lgClose = this.lgClose.bind(this);
+    	this.hideModal = this.hideModal.bind(this);
       this.lgOpen = this.lgOpen.bind(this);
       this.wodRandomizer = this.wodRandomizer.bind(this);
   }
@@ -53,14 +53,25 @@ class App extends React.Component {
     console.log(this.state.randomID);
   }
 
-  lgClose () {
 
-    this.setState({ lgShow: false });
-  }
   lgOpen () {
     this.setState({ lgShow: true });
     console.log("lgOpen", this.state.lgShow)
   }
+
+  hideModal(e){
+    this.setState({
+      lgShow: false
+    });
+  }
+  //
+  // showModal(e){
+  //   // e.preventDefault();
+  //   this.setState({
+  //     lgShow: true
+  //   });
+  // }
+  //
   render () {
     return (
       <Jumbotron>
@@ -76,8 +87,11 @@ class App extends React.Component {
           <div>
             <List items = {this.state.items}/>
           </div>
-          <NewEntryForm />
         </div>
+        <NewEntryForm
+          lgShow={this.state.lgShow}
+          hideModal={this.hideModal}
+          />
         <Button
           bsStyle="primary"
           onClick={this.lgOpen}

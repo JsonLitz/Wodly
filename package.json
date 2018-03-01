@@ -6,15 +6,20 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
-    "db": "mongod"
+    "db": "mongod",
+    "build": "babel src/ -d dist/",
+    "prepublish": "npm run build"
   },
   "author": "Jason Lee",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
     "babel-preset-es2015": "^6.22.0",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.23.0",
+    "flow-bin": "^0.66.0",
     "webpack": "^2.2.1"
   },
   "dependencies": {
@@ -25,7 +30,7 @@
     "mongoose": "^4.8.6",
     "mysql": "^2.13.0",
     "react": "^15.6.1",
-    "react-bootstrap": "^0.31.2",
+    "react-bootstrap": "^0.31.2", 
     "react-dom": "^15.6.1",
     "react-rating": "^0.8.1",
     "shortid": "^2.2.8"

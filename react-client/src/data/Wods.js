@@ -1,3 +1,6 @@
+/*
+Currently this data is not in JSON format. Keys need to be switched to strings. json.parse()
+*/
 const wodData = [
   {
     name:'Murph',
