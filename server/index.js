@@ -15,7 +15,7 @@ app.get('/items', function (req, res) {
       res.sendStatus(500);
     } else {
       res.json(data);
-      console.log("Successfully retreived from /iems!!");
+      console.log("Successfully retreived from /items!!");
     }
   });
 });
@@ -27,7 +27,7 @@ app.get('/', function (req, res) {
     } else {
       res.json(data);
       console.log("Successfully retrieved from '/'!");
-      
+
     }
   });
 });
