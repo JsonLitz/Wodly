@@ -14,8 +14,8 @@ app.get('/items', function (req, res) {
     if(err) {
       res.sendStatus(500);
     } else {
-      console.log(res)
       res.json(data);
+      console.log("Successfully retreived from /iems!!");
     }
   });
 });
@@ -25,15 +25,17 @@ app.get('/', function (req, res) {
     if(err) {
       res.sendStatus(500);
     } else {
-      console.log(res)
       res.json(data);
+      console.log("Successfully retrieved from '/'!");
+      
     }
   });
 });
 
 
 app.post('/items', function(req, res){
-  console.log(req.body);
+    console.log("Successfully posted to /items");
+
   items.save(req.body);
   res.send(req.body);
 });

@@ -15,7 +15,6 @@ var wodSchema = mongoose.Schema({
   movements: String,
   details: String,
   name: String
-
 });
 
 var Entry = mongoose.model('Entry', wodSchema);
@@ -29,14 +28,15 @@ var selectAll = function(callback) {
     }
   });
 };
+
 var save = function(entry){
-  var row = new Entry({
+  var entry = new Entry({
     movements: entry.movements,
     details: entry.details,
     name: entry.name
   });
-  console.log("THIS IS A FLAG", row);
-  return row.save();
+  console.log("THIS IS A FLAG", entry);
+  return entry.save();
 };
 
 module.exports.selectAll = selectAll;
