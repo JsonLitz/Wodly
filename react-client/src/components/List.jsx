@@ -39,15 +39,13 @@ class List extends React.Component {
     this.showEntries();
   }
   showEntries() {
-    var that = this;
-
     fetch('/items')
         .then(response => response.json())
             .then(data => {
                 this.setState({
                     data:data
                 })
-            }).then(data => console.log(this.state.data))
+            })
 
   }
   randomNumberGen() {
