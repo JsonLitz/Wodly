@@ -2,7 +2,6 @@ import React from 'react';
 import Movements from './Movements.jsx';
 import wodData from '../data/Wods.js';
 import {Button, Grid, Row, Form, FormGroup, FormControl, Col} from 'react-bootstrap';
-// import shortid from 'shortid';
 
 const divStyle = {
   textAlign: 'center'
@@ -10,7 +9,6 @@ const divStyle = {
 class Wod extends React.Component {
   constructor(props){
     super(props);
-    console.log("wod props",props)
     this.state = {
       currentWod: props.wod,
       randomID:12345
@@ -23,15 +21,12 @@ class Wod extends React.Component {
       currentWod: random,
       randomID:randomInt
     });
-    console.log(this.state.randomID);
   }
   componentWillMount() {
     this.wodRandomizer()
   }
 
-  // console.log("shorid",shortid.generate());
 render () {
-  console.log("helloassad", this.props);
   return (
       <div style = {divStyle}>
         <h2 > Your Daily Wod</h2>

@@ -4,7 +4,6 @@ var items = require('../database-mongo');
 var app = express();
 var shortid = require('shortid');
 
-console.log("shortid",shortid.generate());
 app.use(express.static(__dirname + '/../react-client/dist'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -14,8 +13,8 @@ app.get('/items', function (req, res) {
     if(err) {
       res.sendStatus(500);
     } else {
-      console.log(res)
       res.json(data);
+      console.log("Successfully retreived from /items!!");
     }
   });
 });
@@ -25,15 +24,17 @@ app.get('/', function (req, res) {
     if(err) {
       res.sendStatus(500);
     } else {
-      console.log(res)
       res.json(data);
+      console.log("Successfully retrieved from '/'!");
+
     }
   });
 });
 
 
 app.post('/items', function(req, res){
-  console.log(req.body);
+    console.log("Successfully posted to /items");
+
   items.save(req.body);
   res.send(req.body);
 });

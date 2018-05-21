@@ -39,20 +39,19 @@ class List extends React.Component {
     this.showEntries();
   }
   showEntries() {
-    var that = this;
-    $.get("/items", function( data ){
-      that.setState({
-        data: data
-      });
+    fetch('/items')
+        .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    data:data
+                })
+            })
 
-    });
   }
   randomNumberGen() {
     let index=Math.floor(Math.random() * 1000);
   }
   render() {
-    // console.log("mounted",this.state.data);
-
     return (
       <div >
         <form action="/items">
@@ -76,7 +75,6 @@ class List extends React.Component {
               required = 'required'
             />
             <FormGroup controlId="formControlsTextarea">
-              <ControlLabel></ControlLabel>
               <FormControl
                 name = 'movements'
                 type = 'text'

@@ -34,14 +34,15 @@ class App extends React.Component {
         this.setState({
           items: data
         });
+        console.log(data);
       },
       error: (err) => {
         console.log('err', err);
       }
     });
     this.wodRandomizer()
-
   }
+
 
   wodRandomizer ()  {
     var random  = wodData[Math.floor(Math.random()*wodData.length)];
