@@ -33,7 +33,7 @@ render () {
         <Button bsStyle="primary" onClick = {this.props.wodRandomizer}>Pick another</Button>
         <h3> {this.props.currentWod.name}</h3>
         <h4>Details: {this.props.currentWod.details}</h4>
-        Movements:{this.props.currentWod.movements.map(movement => <Movements key={this.props.currentWod.movements.indexOf(movement)} movement = {movement}/>)}
+        Movements:{this.props.currentWod.movements.map((movement,i) => <Movements key={i} movement = {movement}/>)}
 
 
       </div>

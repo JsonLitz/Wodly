@@ -43,7 +43,6 @@ class App extends React.Component {
     this.wodRandomizer()
   }
 
-
   wodRandomizer ()  {
     var random  = wodData[Math.floor(Math.random()*wodData.length)];
     var randomInt = Math.floor(Math.random()*100000);

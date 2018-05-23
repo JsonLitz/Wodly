@@ -1,14 +1,18 @@
 import React from 'react';
-import {Panel} from 'react-bootstrap';
+import { Panel } from 'react-bootstrap';
+import styled from 'emotion'
 
 const divStyle = {
   textAlign: 'center'
 };
+
+
 const ListItem = (props) =>
+
   (
     <div>
       <Panel >
-        <p style= {divStyle}>Name:{props.item.name}</p>
+        Name:<h3 style= {divStyle}>{props.item.name}</h3>
         <p style= {divStyle}>Details:{props.item.details}</p>
         <p style= {divStyle}>Movements:{props.item.movements}</p>
       </Panel>
