@@ -42,6 +42,7 @@ class List extends React.Component {
         .then((data) =>  console.log(data))
         .catch((err)=>console.log(err))
     }
+    
   showEntries() {
     fetch('/items')
         .then(response => response.json())

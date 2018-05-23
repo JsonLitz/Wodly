@@ -24,7 +24,14 @@ class App extends React.Component {
       this.lgOpen = this.lgOpen.bind(this);
       this.wodRandomizer = this.wodRandomizer.bind(this);
   }
-
+  // fetch('/items')
+  // .then(response => response.json())
+  // .then(data => {
+  //     this.setState({
+  //         items:data
+  //     })
+  //     {console.log(this.state.items, "state")};
+  // })
   componentWillMount() {
     console.log("mounted",this.state.wods);
 
@@ -43,6 +50,9 @@ class App extends React.Component {
     this.wodRandomizer()
   }
 
+  componentDidMount(){
+      console.log(this.state.data)
+  }
   wodRandomizer ()  {
     var random  = wodData[Math.floor(Math.random()*wodData.length)];
     var randomInt = Math.floor(Math.random()*100000);
