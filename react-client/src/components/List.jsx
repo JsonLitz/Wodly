@@ -27,6 +27,14 @@ class List extends React.Component {
     });
 
   }
+  clearForms() {
+      this.setState({
+          details: '',
+          name:'',
+          movements:'',
+      })
+      console.log(this.state);
+  }
 
   addNew(e) {
     var that = this;
@@ -41,8 +49,8 @@ class List extends React.Component {
         }).then((res) => res.json())
         .then((data) =>  console.log(data))
         .catch((err)=>console.log(err))
+        this.clearForms()
     }
-    
   showEntries() {
     fetch('/items')
         .then(response => response.json())
@@ -91,6 +99,7 @@ class List extends React.Component {
           </div>
           <div style = {divStyle}>
             <Button
+
               onClick={this.addNew.bind(this)}
               >Add an entry!
             </Button>
