@@ -1,6 +1,7 @@
 import React from 'react';
 import { Panel } from 'react-bootstrap';
-import styled from 'emotion'
+import styled, { css } from 'react-emotion';
+
 
 const divStyle = {
   textAlign: 'center'
