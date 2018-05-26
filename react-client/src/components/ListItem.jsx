@@ -13,7 +13,7 @@ const ListItem = (props) =>
   (
     <div>
       <Panel >
-        Name:<h3 style= {divStyle}>{props.item.name}</h3>
+        <h3 style= {divStyle}>Name:  {props.item.name}</h3>
         <p style= {divStyle}>Details:{props.item.details}</p>
         <p style= {divStyle}>Movements:{props.item.movements}</p>
       </Panel>

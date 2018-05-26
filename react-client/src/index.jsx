@@ -24,19 +24,22 @@ class App extends React.Component {
       this.lgOpen = this.lgOpen.bind(this);
       this.wodRandomizer = this.wodRandomizer.bind(this);
   }
+
+  // use 'static'
+
  sanitizeReturnJson(json){
        var answer = json.map(obj => {
             delete obj["_id"]
             return obj
        })
        this.setState({items:answer})
-       console.log("sanitizedJson",this.state.items, "vs  ", this.state.wods);
            this.wodRandomizer()
    }
 
   componentWillMount(){
       this.showEntries();
   }
+
   showEntries() {
     console.log("mounted",this.state.wods);
 
@@ -48,19 +51,10 @@ class App extends React.Component {
             {console.log(this.state.data, "index.jsx state")};
 
   }
-  // showEntries() {
-  //   fetch('/items')
-  //       .then(response => response.json())
-  //           .then(data => {
-  //               this.setState({
-  //                   data:data
-  //               })
-  //           })
-  // }
-
   componentDidMount(){
       console.log("items=", this.state.wods, "wods = ",this.state.wods)
   }
+
   wodRandomizer ()  {
       console.log("wodRandomizer");
     var random  = this.state.items[Math.floor(Math.random()*this.state.items.length)];
