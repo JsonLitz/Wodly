@@ -71,7 +71,6 @@ class List extends React.Component {
                 this.setState({
                     data:data
                 })
-                {console.log(this.state.data, "state")};
             })
   }
 

@@ -24,43 +24,52 @@ class App extends React.Component {
       this.lgOpen = this.lgOpen.bind(this);
       this.wodRandomizer = this.wodRandomizer.bind(this);
   }
-  // fetch('/items')
-  // .then(response => response.json())
-  // .then(data => {
-  //     this.setState({
-  //         items:data
-  //     })
-  //     {console.log(this.state.items, "state")};
-  // })
-  componentWillMount() {
+ sanitizeReturnJson(json){
+       var answer = json.map(obj => {
+            delete obj["_id"]
+            return obj
+       })
+       this.setState({items:answer})
+       console.log("sanitizedJson",this.state.items, "vs  ", this.state.wods);
+           this.wodRandomizer()
+   }
+
+  componentWillMount(){
+      this.showEntries();
+  }
+  showEntries() {
     console.log("mounted",this.state.wods);
 
-    $.ajax({
-      url: '/items',
-      success: (data) => {
-        this.setState({
-          items: data
-        });
-        console.log(data);
-      },
-      error: (err) => {
-        console.log('err', err);
-      }
-    });
-    this.wodRandomizer()
+    fetch('/items')
+        .then(response => response.json())
+            .then(data => {
+                this.sanitizeReturnJson(data)
+            })
+            {console.log(this.state.data, "index.jsx state")};
+
   }
+  // showEntries() {
+  //   fetch('/items')
+  //       .then(response => response.json())
+  //           .then(data => {
+  //               this.setState({
+  //                   data:data
+  //               })
+  //           })
+  // }
 
   componentDidMount(){
-      console.log(this.state.data)
+      console.log("items=", this.state.wods, "wods = ",this.state.wods)
   }
   wodRandomizer ()  {
-    var random  = wodData[Math.floor(Math.random()*wodData.length)];
+      console.log("wodRandomizer");
+    var random  = this.state.items[Math.floor(Math.random()*this.state.items.length)];
     var randomInt = Math.floor(Math.random()*100000);
     this.setState({
       currentWod: random,
       randomID:randomInt
     });
-    console.log(this.state.randomID);
+    console.log(this.state.currentWod,"this.state.currentWod");
   }
 
   lgClose () {
@@ -77,11 +86,11 @@ class App extends React.Component {
         <div>
           <h1 style = {divStyle}>WODly</h1>
           <div>
-            <Wod
-              currentWod={this.state.currentWod}
-              wodRandomizer={this.wodRandomizer}
-              randomID={this.state.randomInt}
-              />
+          <Wod
+          currentWod={this.state.currentWod}
+          wodRandomizer={this.wodRandomizer}
+          randomID={this.state.randomInt}
+          />
           </div>
           <div>
             <List items = {this.state.items}/>
