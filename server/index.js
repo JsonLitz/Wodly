@@ -4,8 +4,9 @@ var items = require('../database-mongo');
 var app = express();
 var shortid = require('shortid');
 
+app.use(require("body-parser").json());
 app.use(express.static(__dirname + '/../react-client/dist'));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get('/items', function (req, res) {
@@ -33,7 +34,7 @@ app.get('/', function (req, res) {
 
 
 app.post('/items', function(req, res){
-    console.log("Successfully posted to /items");
+    console.log("req.body posted to /items", req.body);
 
   items.save(req.body);
   res.send(req.body);
