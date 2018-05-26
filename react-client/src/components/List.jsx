@@ -1,11 +1,21 @@
 import React from 'react';
 import ListItem from './ListItem.jsx';
 import $ from 'jquery';
-import {Button, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
+import { Button, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
+import styled, { css } from 'react-emotion';
+
 
 const divStyle = {
   textAlign: 'center'
 };
+const Movements = styled('div')`
+    label {
+        margin: 5% 20%;
+        textAlign: 'center';
+    }
+`
+
+
 class List extends React.Component {
   constructor (props){
     super (props);
@@ -36,20 +46,23 @@ class List extends React.Component {
       console.log(this.state);
   }
 
-  addNew(e) {
+  async addNew(e) {
     var that = this;
     var postData = {
         details: this.state.details,
         name:this.state.name,
         movements:this.state.movements,
     }
-    fetch('/items', {
+    console.log('this is your add new function data', postData );
+        fetch('/items', {
             method: 'POST',
-            body:JSON.stringify({postData})
-        }).then((res) => res.json())
-        .then((data) =>  console.log(data))
-        .catch((err)=>console.log(err))
-        this.clearForms()
+            body: JSON.stringify(postData),
+            headers: { "Content-Type": "application/json" }
+        }).then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then(response => console.log('Success:', response));
+
+        this.clearForms();
     }
   showEntries() {
     fetch('/items')
@@ -58,9 +71,10 @@ class List extends React.Component {
                 this.setState({
                     data:data
                 })
-                {console.log(this.state.data, "state")};
             })
   }
+
+
 
   render() {
 
@@ -68,6 +82,8 @@ class List extends React.Component {
       <div >
         <form action="/items">
           <div style = {divStyle}>
+          <label>
+            Name:
             <input
               name='name'
               type='text'
@@ -76,30 +92,38 @@ class List extends React.Component {
               onChange={this.onChange}
               required='required'
               />
+              </label>
           </div>
           <div style = {divStyle}>
-            <input
-              name = 'details'
-              type = 'text'
-              placeholder = 'Enter details'
-              value={this.state.details}
-              onChange={this.onChange}
-              required = 'required'
-            />
+              <label>
+              details:
+                    <input
+                      name = 'details'
+                      type = 'text'
+                      placeholder = 'Enter details'
+                      value={this.state.details}
+                      onChange={this.onChange}
+                      required = 'required'
+                    />
+                </label>
+
             <FormGroup controlId="formControlsTextarea">
-              <FormControl
-                name = 'movements'
-                type = 'text'
-                componentClass="textarea"
-                placeholder="Enter movements"
-                onChange={this.onChange}
-                value={this.state.movements}
-                />
+            <Movements>
+                <label>
+                    movements:
+                    <input
+                        name = 'movements'
+                        type = 'text'
+                        placeholder="Enter movements"
+                        onChange={this.onChange}
+                        value={this.state.movements}
+                        />
+                </label>
+                </Movements>
             </FormGroup>
           </div>
           <div style = {divStyle}>
             <Button
-
               onClick={this.addNew.bind(this)}
               >Add an entry!
             </Button>
