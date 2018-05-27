@@ -38,5 +38,11 @@ var save = function(entry){
   return entry.save();
 };
 
+// var delete = function(wod){
+//     Entry.deleteOne({name: wod}, function (err){
+//         if (err) return handleError(err);
+//     }
+// }
+
 module.exports.selectAll = selectAll;
 module.exports.save = save;
