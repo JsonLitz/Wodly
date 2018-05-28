@@ -35,7 +35,6 @@ class App extends React.Component {
        this.setState({items:answer})
            this.wodRandomizer()
    }
-
   componentWillMount(){
       this.showEntries();
   }

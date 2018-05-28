@@ -130,7 +130,7 @@ class List extends React.Component {
           </div>
         </form>
         <div>
-          {this.state.data.map((data,i) => <ListItem key={i}  item={data}/>)}
+          {this.state.data.map((data,i) => <ListItem key={i}  item={data} deleteOne={this.deleteOne}/>)}
         </div>
 
       </div>
