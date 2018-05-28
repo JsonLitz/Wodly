@@ -34,14 +34,14 @@ app.get('/', function (req, res) {
 
 app.delete('/items', function (req,res) {
     items.destroy(req.body);
-    // res.send(req.body);
+    res.send(req.body);
 
     console.log("req.body for delete request", req.body);
 })
 
 app.post('/items', function(req, res){
     console.log("req.body posted to /items", req.body);
-  items.taco(req.body);
+  items.save(req.body);
   res.send(req.body);
 });
 

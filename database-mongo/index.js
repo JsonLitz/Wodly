@@ -41,7 +41,7 @@ var save = function(entry){
     details: entry.details,
     name: entry.name
   });
-  console.log("THIS IS A FLAG in Mongoose", entry);
+  console.log("Your save function in Mongoose", entry);
   return entry.save();
 };
 

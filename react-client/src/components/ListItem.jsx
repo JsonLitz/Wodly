@@ -24,7 +24,7 @@ class ListItem extends React.Component {
           body: JSON.stringify({"_id":postId}),
           headers: { "Content-Type": "application/json" },
       }).then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => console.log("successfully deleted" ))
   }
   render() {
       return (
