@@ -28,21 +28,23 @@ var selectAll = function(callback) {
   });
 };
 
+var destroy = function(id){
+    console.log("Your delete function in Mongoose",id);
+    Entry.deleteOne({"_id": id }, function (err){
+        if (err) return handleError(err);
+    })
+};
+
 var save = function(entry){
   var entry = new Entry({
     movements: entry.movements,
     details: entry.details,
     name: entry.name
   });
-  console.log("THIS IS A FLAG", entry);
+  console.log("THIS IS A FLAG in Mongoose", entry);
   return entry.save();
 };
 
-// var delete = function(wod){
-//     Entry.deleteOne({name: wod}, function (err){
-//         if (err) return handleError(err);
-//     }
-// }
-
 module.exports.selectAll = selectAll;
 module.exports.save = save;
+module.exports.destroy = destroy;

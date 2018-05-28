@@ -7,18 +7,38 @@ const divStyle = {
   textAlign: 'center'
 };
 
-
-const ListItem = (props) =>
-
-  (
-    <div>
-      <Panel >
-        <h3 style= {divStyle}>Name:  {props.item.name}</h3>
-        <p style= {divStyle}>Details:{props.item.details}</p>
-        <p style= {divStyle}>Movements:{props.item.movements}</p>
-      </Panel>
-    </div>
-  )
+class ListItem extends React.Component {
+  constructor (props){
+    super (props);
+    this.state = {
+      details: this.props.item.details,
+      name: this.props.item.name,
+      movements: this.props.item.movements
+    };
+    this.deleteOne = this.deleteOne.bind(this);
+  }
+  deleteOne(){
+      var postId = this.props.item._id
+       fetch('/items', {
+          method: 'delete',
+          body: JSON.stringify({"_id":postId}),
+          headers: { "Content-Type": "application/json" },
+      }).then(response => response.json())
+      .then(data => console.log(data))
+  }
+  render() {
+      return (
+          <div>
+          <Panel >
+              <button onClick={this.deleteOne}></button>
+              <h3 style= {divStyle}>Name:  {this.state.name}</h3>
+              <p style= {divStyle}>Details:{this.state.details}</p>
+              <p style= {divStyle}>Movements:{this.state.movements}</p>
+          </Panel>
+          </div>
+      )
+  }
+}
 export default ListItem;
 
 //make new component
