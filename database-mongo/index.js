@@ -13,6 +13,7 @@ db.once('open', function() {
 
 var wodSchema = new Schema({
   movements: String,
+  exercise: [{ reps: Number, rx: Date }],
   details: String,
   name: String
 });
@@ -40,7 +41,8 @@ var save = function(entry){
   var entry = new Entry({
     movements: entry.movements,
     details: entry.details,
-    name: entry.name
+    name: entry.name,
+    exercise: entry.exercise
   });
   console.log("Your save function in Mongoose", entry);
   return entry.save();
