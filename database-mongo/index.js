@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var db = mongoose.connection;
+var Schema = mongoose.Schema;
 mongoose.connect('mongodb://localhost/WODly');
 
 db.on('error', function() {
@@ -10,7 +11,7 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-var wodSchema = mongoose.Schema({
+var wodSchema = new Schema({
   movements: String,
   details: String,
   name: String

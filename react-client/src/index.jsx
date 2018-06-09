@@ -40,7 +40,7 @@ class App extends React.Component {
   }
 
   showEntries() {
-    console.log("mounted",this.state.wods);
+    // console.log("mounted",this.state.wods);
 
     fetch('/items')
         .then(response => response.json())
@@ -50,19 +50,18 @@ class App extends React.Component {
             {console.log(this.state.data, "index.jsx state")};
 
   }
-  componentDidMount(){
-      console.log("items=", this.state.wods, "wods = ",this.state.wods)
-  }
+  // componentDidMount(){
+  //     console.log("items=", this.state.items, "wods = ",this.state.wods)
+  // }
 
   wodRandomizer ()  {
-      console.log("wodRandomizer");
     var random  = this.state.items[Math.floor(Math.random()*this.state.items.length)];
     var randomInt = Math.floor(Math.random()*100000);
     this.setState({
       currentWod: random,
       randomID:randomInt
     });
-    console.log(this.state.currentWod,"this.state.currentWod");
+    // console.log(this.state.currentWod,"this.state.currentWod");
   }
 
   lgClose () {
