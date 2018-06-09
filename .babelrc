@@ -1,0 +1,25 @@
+{
+    "presets": ["react", "es2015"],
+    "plugins": [
+        ["transform-class-properties", { "spec": true }],
+        ["transform-es2015-arrow-functions", { "spec": true }],
+        [
+            "emotion",
+                {
+                "hoist": false,
+                "sourceMap": false,
+                "autoLabel": false,
+                "labelFormat": "[local]",
+                "extractStatic": false,
+                "outputDir": '',
+                "importedNames": {
+                  "styled": "styled",
+                  "css": "css",
+                  "keyframes": "keyframes",
+                  "injectGlobal": "injectGlobal",
+                  "merge": "merge"
+                }
+            }
+        ]
+    ],
+}
