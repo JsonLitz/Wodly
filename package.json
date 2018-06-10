@@ -6,11 +6,13 @@
   "scripts": {
     "webpack": "webpack -d --watch",
     "server": "nodemon server/index.js",
-    "db": "mongod"
+    "db": "mongod",
+    "test": "ava"
   },
   "author": "Jason Lee",
   "license": "ISC",
   "devDependencies": {
+    "ava": "1.0.0-beta.5.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^6.3.2",
     "babel-preset-es2015": "^6.22.0",
