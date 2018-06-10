@@ -1,6 +1,5 @@
 import React from 'react';
 import ListItem from './ListItem.jsx';
-import $ from 'jquery';
 import { Button, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import styled, { css } from 'react-emotion';
 
