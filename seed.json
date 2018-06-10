@@ -1,5 +1,5 @@
 {
 	"undefined": "mongodb://localhost/WODly",
-	"dev": "localhost/DEV_DB_NAME",
+	"dev": "localhost/WODly",
 	"prod": "localhost/PROD_DB_NAME"
 }
