@@ -7,6 +7,11 @@ const divStyle = {
   textAlign: 'center'
 };
 
+const DeleteButton = styled.button`
+    height:50px;
+    width:50px;
+
+`
 class ListItem extends React.Component {
   constructor (props){
     super (props);
@@ -30,7 +35,7 @@ class ListItem extends React.Component {
       return (
           <div>
           <Panel >
-              <button onClick={this.deleteOne}></button>
+              <DeleteButton onClick={this.deleteOne}></DeleteButton>
               <h3 style= {divStyle}>Name:  {this.state.name}</h3>
               <p style= {divStyle}>Details:{this.state.details}</p>
               <p style= {divStyle}>Movements:{this.state.movements}</p>

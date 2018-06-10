@@ -5,7 +5,7 @@
  -->
 npm run-script:
  "webpack": "webpack -d --watch",
- "server": "nodemon server/index.js",
+ "dev": "nodemon server/index.js",
  "db": "mongod"
 ## Personal fitness growth tracker ##
 

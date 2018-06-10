@@ -8,7 +8,7 @@ import styled, { css } from 'react-emotion';
 const divStyle = {
   textAlign: 'center'
 };
-const Movements = styled('div')`
+const Movements = styled.div`
     label {
         margin: 5% 20%;
         textAlign: 'center';

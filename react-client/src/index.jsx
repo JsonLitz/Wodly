@@ -20,12 +20,10 @@ class App extends React.Component {
       currentWod: "",
       randomID:""
     };
-    	this.lgClose = this.lgClose.bind(this);
-      this.lgOpen = this.lgOpen.bind(this);
-      this.wodRandomizer = this.wodRandomizer.bind(this);
+    this.lgClose = this.lgClose.bind(this);
+    this.lgOpen = this.lgOpen.bind(this);
+    this.wodRandomizer = this.wodRandomizer.bind(this);
   }
-
-  // use 'static'
 
  sanitizeReturnJson(json){
        var answer = json.map(obj => {
@@ -35,34 +33,33 @@ class App extends React.Component {
        this.setState({items:answer})
            this.wodRandomizer()
    }
-  componentWillMount(){
+  componentWillMount (){
       this.showEntries();
   }
 
   showEntries() {
-    console.log("mounted",this.state.wods);
+    // console.log("mounted",this.state.wods);
 
     fetch('/items')
         .then(response => response.json())
             .then(data => {
                 this.sanitizeReturnJson(data)
             })
-            {console.log(this.state.data, "index.jsx state")};
+            // {console.log(this.state.data, "index.jsx state")};
 
   }
-  componentDidMount(){
-      console.log("items=", this.state.wods, "wods = ",this.state.wods)
-  }
+  // componentDidMount(){
+  //     console.log("items=", this.state.items, "wods = ",this.state.wods)
+  // }
 
   wodRandomizer ()  {
-      console.log("wodRandomizer");
     var random  = this.state.items[Math.floor(Math.random()*this.state.items.length)];
     var randomInt = Math.floor(Math.random()*100000);
     this.setState({
       currentWod: random,
       randomID:randomInt
     });
-    console.log(this.state.currentWod,"this.state.currentWod");
+    // console.log(this.state.currentWod,"this.state.currentWod");
   }
 
   lgClose () {
