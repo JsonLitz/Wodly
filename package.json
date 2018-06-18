@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "webpack": "webpack -d --watch",
-    "server": "server/index.js",
+    "server": "node server/index.js",
     "db": "mongod",
   },
   "author": "Jason Lee",
