@@ -4,9 +4,9 @@
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management).
  -->
 npm run-script:
- ### "webpack": "webpack -d --watch",
- ### "dev": "nodemon server/index.js",
- ### "db": "mongod"
+ #### "webpack": "webpack -d --watch",
+ #### "dev": "nodemon server/index.js",
+ #### "db": "mongod"
 ## Personal fitness growth tracker ##
 
 ## Who can use this? ##
